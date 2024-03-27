@@ -1,0 +1,53 @@
+[gd_scene load_steps=4 format=3 uid="uid://d0ww1t78lcw7y"]
+
+[ext_resource type="Texture2D" uid="uid://c3f03hq0ijvcn" path="res://icon.svg" id="1_xgyua"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3dqac"]
+size = Vector2(127, 127)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_jp3q0"]
+
+[node name="Node2D 2" type="Node2D"]
+
+[node name="Rigid" type="Node2D" parent="."]
+
+[node name="RigidBody2D" type="RigidBody2D" parent="Rigid"]
+position = Vector2(338, 180)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Rigid/RigidBody2D"]
+position = Vector2(-1.5, -1.5)
+shape = SubResource("RectangleShape2D_3dqac")
+debug_color = Color(0.839216, 0.137255, 0, 1)
+
+[node name="Sprite2D" type="Sprite2D" parent="Rigid/RigidBody2D"]
+position = Vector2(-1, -1)
+texture = ExtResource("1_xgyua")
+
+[node name="Static" type="Node2D" parent="."]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Static"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Static/StaticBody2D"]
+position = Vector2(342, 385)
+shape = SubResource("CircleShape2D_jp3q0")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="Static"]
+position = Vector2(-75, 14)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Static/StaticBody2D2"]
+position = Vector2(342, 385)
+shape = SubResource("CircleShape2D_jp3q0")
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="Static"]
+position = Vector2(-139, 85)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Static/StaticBody2D3"]
+position = Vector2(342, 385)
+shape = SubResource("CircleShape2D_jp3q0")
+
+[node name="StaticBody2D4" type="StaticBody2D" parent="Static"]
+position = Vector2(-139, 85)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Static/StaticBody2D4"]
+position = Vector2(342, 385)
+shape = SubResource("CircleShape2D_jp3q0")
