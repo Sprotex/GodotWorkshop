@@ -1,0 +1,67 @@
+[gd_scene load_steps=8 format=3 uid="uid://fcghqvihjno5"]
+
+[ext_resource type="Script" path="res://Ball.gd" id="1_4s1we"]
+[ext_resource type="Texture2D" uid="uid://dypaaj0xpqwy4" path="res://graphics/ball.png" id="1_bcaep"]
+[ext_resource type="Texture2D" uid="uid://cttu54juaolbh" path="res://graphics/block.png" id="1_kobrg"]
+[ext_resource type="Texture2D" uid="uid://bfvdcihsgfpj4" path="res://graphics/paddle.png" id="2_uifue"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rs1xc"]
+size = Vector2(3854, 20)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3s7x5"]
+radius = 16.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_evn05"]
+size = Vector2(32, 96)
+
+[node name="Level" type="Node2D"]
+metadata/_edit_lock_ = true
+
+[node name="TopBody2D" type="StaticBody2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="TopBody2D"]
+scale = Vector2(125.125, 0.625)
+texture = ExtResource("1_kobrg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TopBody2D"]
+shape = SubResource("RectangleShape2D_rs1xc")
+metadata/_edit_lock_ = true
+
+[node name="BottomBody2D" type="StaticBody2D" parent="."]
+position = Vector2(0, 648)
+
+[node name="Sprite2D" type="Sprite2D" parent="BottomBody2D"]
+scale = Vector2(15656.3, 0.624999)
+texture = ExtResource("1_kobrg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BottomBody2D"]
+shape = SubResource("RectangleShape2D_rs1xc")
+metadata/_edit_lock_ = true
+
+[node name="Ball" type="CharacterBody2D" parent="."]
+position = Vector2(568, 272)
+script = ExtResource("1_4s1we")
+
+[node name="Sprite2D" type="Sprite2D" parent="Ball"]
+texture = ExtResource("1_bcaep")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ball"]
+shape = SubResource("CircleShape2D_3s7x5")
+
+[node name="PlayerPaddle" type="CharacterBody2D" parent="."]
+position = Vector2(98, 296)
+
+[node name="Sprite2D" type="Sprite2D" parent="PlayerPaddle"]
+texture = ExtResource("2_uifue")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerPaddle"]
+shape = SubResource("RectangleShape2D_evn05")
+
+[node name="EnemyPaddle" type="CharacterBody2D" parent="."]
+position = Vector2(1050, 296)
+
+[node name="Sprite2D" type="Sprite2D" parent="EnemyPaddle"]
+texture = ExtResource("2_uifue")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyPaddle"]
+shape = SubResource("RectangleShape2D_evn05")
